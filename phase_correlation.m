@@ -118,55 +118,6 @@ for i=2:m-1
     end    
 end  
 
-% %% removing noise!!!! 
-% 
-% for i=2:m-1
-% 
-%     for j=2:n-1
-%        
-%         pixel=final_img1(i,j);
-%         pixel_1=final_img1(i,j+1);
-%         pixel_2=final_img1(i,j-1);
-%         pixel_3=final_img1(i+1,j+1);
-%         pixel_4=final_img1(i+1,j-1);
-%         pixel_5=final_img1(i-1,j+1);
-%         pixel_6=final_img1(i-1,j-1);
-%         pixel_7=final_img1(i+1,j);
-%         pixel_8=final_img1(i-1,j);
-%         
-%         sum=pixel_1+pixel_2+pixel_3+pixel_4+pixel_5+pixel_6+pixel_7+pixel_8;
-%         if(sum<4)
-%           final_img1(i,j)=0;
-%         end    
-%         
-%         
-%     end    
-% end    
-% 
-% %% removing noise!!!! 
-% 
-% for i=2:m-1
-% 
-%     for j=2:n-1
-%        
-%         pixel=final_img1(i,j);
-%         pixel_1=final_img1(i,j+1);
-%         pixel_2=final_img1(i,j-1);
-%         pixel_3=final_img1(i+1,j+1);
-%         pixel_4=final_img1(i+1,j-1);
-%         pixel_5=final_img1(i-1,j+1);
-%         pixel_6=final_img1(i-1,j-1);
-%         pixel_7=final_img1(i+1,j);
-%         pixel_8=final_img1(i-1,j);
-%         
-%         sum=pixel_1+pixel_2+pixel_3+pixel_4+pixel_5+pixel_6+pixel_7+pixel_8;
-%         if(sum<4)
-%           final_img1(i,j)=0;
-%         end    
-%         
-%         
-%     end    
-% end    
 
 %% Dilation
 
@@ -179,9 +130,6 @@ for j=1:n-2;
 
 w=[1*b(i,j) 1*b(i,j+1) 1*b(i,j+2) 1*b(i+2,j) 1*b(i+2,j+1) 1*b(i+2,j+2)];
 N(i,j)=max(w);  
-
-%     w1=[1*b1(i,j) 1*b1(i,j+1) 1*b1(i,j+2) 1*b1(i+2,j) 1*b1(i+2,j+1) 1*b1(i+2,j+2)];
-% N1(i,j)=max(w1);
 
    end; 
 end;  
@@ -197,40 +145,6 @@ rows= round(cent(1)-cj(2));
 col = round(cent(2)-cj(1)); 
 
 copy= circshift(N,[rows col]);
-
-% [p,q] = size(N);
-% cent =[p/2, q/2];
-
-% count=0;
-% x_sum=0;
-% y_sum=0;
-% 
-% for i=1:p
-% 
-%     for j=1:q
-% 
-%        pixel=N(i,j);
-%        if(pixel==1)
-%           count=count+1; 
-%           x_sum=x_sum+i;
-%           y_sum=y_sum+j;
-%        end    
-%        
-%        
-%         
-%     end    
-% end    
-% 
-% cj(1)=x_sum/count;
-% cj(2)=y_sum/count;
-% 
-% rows= round(cent(1)-cj(1));
-% col = round(cent(2)-cj(2));
-% 
-% copy= circshift(N,[rows col]);
-% 
-% N=copy;
-
 
 % %% shifting center.
 % [p q] = size(N1);
